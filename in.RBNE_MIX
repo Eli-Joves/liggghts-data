@@ -1,4 +1,6 @@
 ### Initialization
+log RBNE_MIX_Trial.log
+
 
 # Preliminaries
 units           si
