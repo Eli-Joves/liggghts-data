@@ -1,4 +1,5 @@
 ### Initialization
+log BNE_LID_Trial.log
 
 # Preliminaries
 units           si
