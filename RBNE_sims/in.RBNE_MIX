@@ -38,7 +38,7 @@ group           small type 1
 group           big type 2
 
 # Import mesh from cad:
-fix             cad1 all mesh/surface file trashcan25mm.stl type 3 scale 0.001 curvature 1e-5 #0.001 initially
+fix             cad1 all mesh/surface file ../trashcan25mm.stl type 3 scale 0.001 curvature 1e-5 #0.001 initially
 
 # Use the imported mesh as granular wall
 fix             granwalls all wall/gran model hertz tangential history rolling_friction cdt mesh n_meshes 1 meshes cad1
