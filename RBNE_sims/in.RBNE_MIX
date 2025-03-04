@@ -13,7 +13,7 @@ communicate     single vel yes
 processors      * * *
 
 # Declare domain
-region          reg block -0.050 0.050 -0.050 0.050 -0.100 1.000 units box #orig 0.7000
+region          reg block -0.07 0.070 -0.070 0.070 -0.150 1.000 units box #orig 0.7000
 create_box      3 reg
 neighbor        0.01 bin
 neigh_modify    delay 0
@@ -21,7 +21,7 @@ neigh_modify    delay 0
 ### Setup
 
 # Material and interaction properties
-fix             m1 all property/global youngsModulus peratomtype 1e8 1e9 1e9
+fix             m1 all property/global youngsModulus peratomtype 1e9 1e9 1e9
 fix             m2 all property/global poissonsRatio peratomtype 0.25 0.345 0.25
 fix             m3 all property/global coefficientRestitution peratomtypepair 3 0.9999 0.9999 0.98 0.9999 0.9999 0.98 0.98 0.98 0.98 # 11 12 13 21 22 23 31 32 33
 fix             m4 all property/global coefficientFriction peratomtypepair 3 0.9 0.5 0.0 0.5 0.5 0.0 0.0 0.0 0.0  #11, 12, 21, 22 interaction
@@ -29,8 +29,8 @@ fix             m5 all property/global coefficientRollingFriction peratomtypepai
 
 # Particle insertion
 
-fix             small all particletemplate/sphere 10000019 atom_type 1 density constant 2500 radius constant 0.001
-fix             big all particletemplate/sphere 10000079 atom_type 2 density constant 8900 radius constant 0.003
+fix             small all particletemplate/sphere 10000019 atom_type 1 density constant 2500 radius constant 0.002
+fix             big all particletemplate/sphere 10000079 atom_type 2 density constant 8900 radius constant 0.005
 fix             small_dist all particledistribution/discrete 10000103 1 small 1mes
 fix             big_dist all particledistribution/discrete 10000121 1 big 1
 
@@ -38,7 +38,7 @@ group           small type 1
 group           big type 2
 
 # Import mesh from cad:
-fix             cad1 all mesh/surface file ../trashcan25mm.stl type 3 scale 0.001 curvature 1e-5 #0.001 initially
+fix             cad1 all mesh/surface file ../trashcan.stl type 3 scale 0.001 curvature 1e-5 #0.001 initially
 
 # Use the imported mesh as granular wall
 fix             granwalls all wall/gran model hertz tangential history rolling_friction cdt mesh n_meshes 1 meshes cad1
@@ -69,11 +69,11 @@ dump		dmpcad1 all mesh/stl 6400 post/can_*.stl cad1
 
 # Insert particles
 #Small Particles
-region          insertion_small cylinder z 0.000 0.000 0.015 0.100 0.190
+region          insertion_small cylinder z 0.000 0.000 0.040 0.100 0.190
 fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
-region          insertion_big cylinder z 0.000 0.000 0.020 0.200 0.300
+region          insertion_big cylinder z 0.000 0.000 0.035 0.200 0.300
 fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 70 particlerate 105 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
