@@ -1,5 +1,5 @@
 ### Initialization
-log BNE_MIX_Trial_2.log
+log BNE_MIX_Trial_3.log
 
 
 # Preliminaries
@@ -70,7 +70,7 @@ dump		dmpcad1 all mesh/stl 6400 post/can_*.stl cad1
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.100 0.190
-fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 3000 particlerate 4500 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.035 0.200 0.300
