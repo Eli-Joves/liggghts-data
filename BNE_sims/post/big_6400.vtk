@@ -11,7 +11,7 @@ VERTICES 2 4
 POINT_DATA 2
 FIELD FieldData 7
 id 1 2 int
-28 112 
+22 82 
 type 1 2 int
 2 2 
 i 3 2 int

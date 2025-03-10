@@ -1308,7 +1308,7 @@ solid LIGGGHTS_STL_EXPORT
       vertex 0.027772 0.041564 0.00590736
     endloop
   endfacet
-  facet normal 0.530988 0.847379 4.3369e-19
+  facet normal 0.530988 0.847379 -4.3369e-19
     outer loop
       vertex 0.027772 0.041564 0.00590736
       vertex 0.025 0.043301 0.00590736
@@ -1525,7 +1525,7 @@ solid LIGGGHTS_STL_EXPORT
       vertex 0.041564 0.027772 0.504907
     endloop
   endfacet
-  facet normal 0.847379 0.530988 4.3369e-19
+  facet normal 0.847379 0.530988 -4.3369e-19
     outer loop
       vertex 0.041564 0.027772 0.504907
       vertex 0.043301 0.025 0.00590736
@@ -2582,7 +2582,7 @@ solid LIGGGHTS_STL_EXPORT
       vertex -0.014505 -0.047816 0.504907
     endloop
   endfacet
-  facet normal -1.24293e-18 1 0.000238476
+  facet normal 0 1 0.000238476
     outer loop
       vertex 0.005442 0.049691 0.504907
       vertex -0.004358 0.04981 0.00590736
