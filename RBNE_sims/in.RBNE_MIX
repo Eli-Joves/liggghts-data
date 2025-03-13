@@ -1,5 +1,5 @@
 ### Initialization
-log RBNE_MIX_Trial_6.log
+log RBNE_MIX_Trial_7.log
 
 
 # Preliminaries
@@ -22,7 +22,7 @@ neigh_modify    delay 0
 
 # Material and interaction properties
 fix             m1 all property/global youngsModulus peratomtype 1e9 1e9 1e9
-fix             m2 all property/global poissonsRatio peratomtype 0.25 0.30 0.25
+fix             m2 all property/global poissonsRatio peratomtype 0.25 0.345 0.25
 fix             m3 all property/global coefficientRestitution peratomtypepair 3 0.9999 0.9999 0.98 0.9999 0.9999 0.98 0.98 0.98 0.98 # 11 12 13 21 22 23 31 32 33
 fix             m4 all property/global coefficientFriction peratomtypepair 3 0.9 0.5 0.0 0.5 0.5 0.0 0.0 0.0 0.0  #11, 12, 21, 22 interaction
 fix             m5 all property/global coefficientRollingFriction peratomtypepair 3 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
@@ -30,7 +30,7 @@ fix             m5 all property/global coefficientRollingFriction peratomtypepai
 # Particle insertion
 
 fix             small all particletemplate/sphere 10000019 atom_type 1 density constant 2500 radius constant 0.002
-fix             big all particletemplate/sphere 10000079 atom_type 2 density constant 7700 radius constant 0.005
+fix             big all particletemplate/sphere 10000079 atom_type 2 density constant 8900 radius constant 0.005
 fix             small_dist all particledistribution/discrete 10000103 1 small 1mes
 fix             big_dist all particledistribution/discrete 10000121 1 big 1
 
@@ -115,7 +115,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00993960811531334 period 0.1 #4 gamma  
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.0111820591297275 period 0.1 #4.5 gamma  
 
 #starts 640000
 run             3840000 upto # run 20 secs
