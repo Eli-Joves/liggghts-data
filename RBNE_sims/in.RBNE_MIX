@@ -1,5 +1,5 @@
 ### Initialization
-log RBNE_MIX_Trial_13.log
+log RBNE_MIX_Trial_14.log
 
 
 # Preliminaries
@@ -61,9 +61,9 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post13/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post13/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post13/can_*.stl cad1
+dump        big_data big custom/vtk 6400 post14/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post14/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post14/can_*.stl cad1
 
 ### Execution and further settings
 
@@ -115,7 +115,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.0118032846369346 period 0.1 #4.75 gamma  
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.0111820591297275 period 0.1 #4.5 gamma  
 
 #starts 640000
 run             3840000 upto # run 20 secs
