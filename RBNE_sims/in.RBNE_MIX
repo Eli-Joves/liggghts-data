@@ -1,5 +1,5 @@
 ### Initialization
-log RBNE_MIX_Trial_14.log
+log RBNE_MIX_Trial_15.log
 
 
 # Preliminaries
@@ -61,9 +61,9 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post14/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post14/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post14/can_*.stl cad1
+dump        big_data big custom/vtk 6400 post15/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post15/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post15/can_*.stl cad1
 
 ### Execution and further settings
 
@@ -77,6 +77,25 @@ region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500
 fix             ins_big big insert/rate/region seed 10000139 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
+
+# Getting average height
+compute total_particles all property/atom id
+variable total_particles equal count(all)
+
+variable top_10_percent_particles equal 0.10 * v_total_particles
+
+compute max_z all reduce max z
+
+variable top_threshold equal 0.90  # Top 10% threshold
+variable z_threshold equal v_top_threshold * c_max_z
+
+region top_layer block INF INF INF INF v_z_threshold INF units box
+group top_layer dynamic all region top_layer
+
+compute avg_z_top_layer top_layer reduce ave z
+
+variable avg_z_64000 equal c_avg_z_top_layer
+print "Average height of the topmost 10% of particles at timestep 640000: ${avg_z_640000}"
 
 # Define variables which tracks center of mass dynamics of many particle system
 variable        xpossmall equal xcm(small,x)
@@ -125,3 +144,6 @@ unfix           movecad1
 
 # Allow particles to settle
 run             4160000 upto # run 2 secs
+
+variable avg_z_4160000 equal c_avg_z_top_layer
+print "Average height of the topmost 10% of particles at timestep 4160000: ${avg_z_4160000}"
