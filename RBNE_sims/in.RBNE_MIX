@@ -70,11 +70,11 @@ dump		dmpcad1 all mesh/stl 6400 post16/can_*.stl cad1
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
-fix             ins_small small insert/rate/region seed 10000161 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000169 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
-fix             ins_big big insert/rate/region seed 10000161 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
+fix             ins_big big insert/rate/region seed 10000169 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
 
