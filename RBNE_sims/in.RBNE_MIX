@@ -1,5 +1,5 @@
 ### Initialization
-log RBNE_MIX_Trial_15.log
+log RBNE_MIX_Trial_16.log
 
 
 # Preliminaries
@@ -61,20 +61,20 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post15/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post15/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post15/can_*.stl cad1
+dump        big_data big custom/vtk 6400 post16/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post16/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post16/can_*.stl cad1
 
 ### Execution and further settings
 
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
-fix             ins_small small insert/rate/region seed 10000139 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000161 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
-fix             ins_big big insert/rate/region seed 10000139 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
+fix             ins_big big insert/rate/region seed 10000161 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
 
