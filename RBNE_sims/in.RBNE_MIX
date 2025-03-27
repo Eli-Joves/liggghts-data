@@ -78,25 +78,6 @@ fix             ins_big big insert/rate/region seed 10000161 distributiontemplat
 
 run             640000 upto # 4 secs
 
-# Getting average height
-compute total_particles all property/atom id
-variable total_particles equal count(all)
-
-variable top_10_percent_particles equal 0.10 * v_total_particles
-
-compute max_z all reduce max z
-
-variable top_threshold equal 0.90  # Top 10% threshold
-variable z_threshold equal v_top_threshold * c_max_z
-
-region top_layer block INF INF INF INF v_z_threshold INF units box
-group top_layer dynamic all region top_layer
-
-compute avg_z_top_layer top_layer reduce ave z
-
-variable avg_z_64000 equal c_avg_z_top_layer
-print "Average height of the topmost 10% of particles at timestep 640000: ${avg_z_640000}"
-
 # Define variables which tracks center of mass dynamics of many particle system
 variable        xpossmall equal xcm(small,x)
 variable        xfrcsmall equal fcm(small,x)
@@ -144,6 +125,3 @@ unfix           movecad1
 
 # Allow particles to settle
 run             4160000 upto # run 2 secs
-
-variable avg_z_4160000 equal c_avg_z_top_layer
-print "Average height of the topmost 10% of particles at timestep 4160000: ${avg_z_4160000}"
