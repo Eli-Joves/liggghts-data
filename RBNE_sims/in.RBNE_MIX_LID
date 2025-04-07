@@ -38,7 +38,7 @@ group           big type 2
 
 # Import mesh from cad:
 fix             cad1 all mesh/surface file ../trashcan25mm.stl type 3 scale 0.001 curvature 1e-5
-fix             cad2 all mesh/surface file ../lid.stl type 3 scale 0.001 move 0 0 1.000  curvature 1e-5
+fix             cad2 all mesh/surface file ../lid.stl type 3 scale 0.001 move 0 0 0.900  curvature 1e-5
 
 # Use the imported mesh as granular wall
 fix             granwalls all wall/gran model hertz tangential history rolling_friction cdt mesh n_meshes 2 meshes cad1 cad2
@@ -80,7 +80,7 @@ fix             ins_big big insert/rate/region seed 10000169 distributiontemplat
 run             640000 upto # 4 secs
 
 # Apply Lid on container
-fix		moveSieve all move/mesh mesh cad2 linear 0 0 -0.330625 #From height X = 1.125
+fix		moveSieve all move/mesh mesh cad2 linear 0 0 -0.230625 #From height X = 1.125
 
 run             800000 upto # 1 secs
 
