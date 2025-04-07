@@ -38,7 +38,7 @@ group           big type 2
 
 # Import mesh from cad:
 fix             cad1 all mesh/surface file ../trashcan25mm.stl type 3 scale 0.001 curvature 1e-5
-fix             cad2 all mesh/surface file ../lid.stl type 3 scale 0.001 move 0 0 0.400  curvature 1e-5
+fix             cad2 all mesh/surface file ../lid.stl type 3 scale 0.001 move 0 0 1.000  curvature 1e-5
 
 # Use the imported mesh as granular wall
 fix             granwalls all wall/gran model hertz tangential history rolling_friction cdt mesh n_meshes 2 meshes cad1 cad2
@@ -61,10 +61,10 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post/can_*.stl cad1
-dump		dmpcad2 all mesh/stl 6400 post/lid_*.stl cad2
+dump        big_data big custom/vtk 6400 post1_lid/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post1_lid/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post1_lid/can_*.stl cad1
+dump		dmpcad2 all mesh/stl 6400 post1_lid/lid_*.stl cad2
 
 ### Execution and further settings
 
@@ -80,7 +80,7 @@ fix             ins_big big insert/rate/region seed 10000169 distributiontemplat
 run             640000 upto # 4 secs
 
 # Apply Lid on container
-fix		moveSieve all move/mesh mesh cad2 linear 0 0 -0.566875 #From height X = 1.625
+fix		moveSieve all move/mesh mesh cad2 linear 0 0 -0.330625 #From height X = 1.125
 
 run             800000 upto # 1 secs
 
