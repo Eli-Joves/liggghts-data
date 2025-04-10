@@ -1,5 +1,5 @@
 ### Initialization
-log RBNE_LID_Trial_5.log
+log RBNE_LID_Trial_6.log
 
 # Preliminaries
 units           si
@@ -61,10 +61,10 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post_lid5/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post_lid5/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post_lid5/can_*.stl cad1
-dump		dmpcad2 all mesh/stl 6400 post_lid5/lid_*.stl cad2
+dump        big_data big custom/vtk 6400 post_lid6/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post_lid6/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post_lid6/can_*.stl cad1
+dump		dmpcad2 all mesh/stl 6400 post_lid6/lid_*.stl cad2
 
 ### Execution and further settings
 
@@ -80,7 +80,7 @@ fix             ins_big big insert/rate/region seed 10000169 distributiontemplat
 run             640000 upto # 4 secs
 
 # Apply Lid on container
-fix		moveSieve all move/mesh mesh cad2 linear 0 0 0.066875 #From height X = 1.625
+fix		moveSieve all move/mesh mesh cad2 linear 0 0 -0.8033125 #From height X = 1.625
 
 run             800000 upto # 1 secs
 
