@@ -70,11 +70,11 @@ dump		    dmpcad2 all mesh/stl 6400 post_lid12/lid_*.stl cad2
 
 # Insert particles
 #Small Particles
-region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
+region          insertion_small cylinder z 0.000 0.000 0.040 0.300 0.400
 fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 3500 particlerate 2100 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
-region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
+region          insertion_big cylinder z 0.000 0.000 0.035 0.100 0.200  
 fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 60 particlerate 45 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
