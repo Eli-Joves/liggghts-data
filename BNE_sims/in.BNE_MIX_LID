@@ -1,5 +1,5 @@
 ### Initialization
-log BNE_LID_Trial_7.log
+log BNE_LID_Trial_7_2.log
 
 # Preliminaries
 units           si
@@ -61,21 +61,21 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post_lid7/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post_lidi7/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		    dmpcad1 all mesh/stl 6400 post_lid7/can_*.stl cad1
-dump		    dmpcad2 all mesh/stl 6400 post_lid7/lid_*.stl cad2
+dump        big_data big custom/vtk 6400 post_lid7_2/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post_lid7_2/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		    dmpcad1 all mesh/stl 6400 post_lid7_2/can_*.stl cad1
+dump		    dmpcad2 all mesh/stl 6400 post_lid7_2/lid_*.stl cad2
 
 ### Execution and further settings
 
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.300 0.400
-fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 3500 particlerate 2100 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000169 distributiontemplate small_dist verbose yes nparticles 3500 particlerate 2100 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.035 0.100 0.200  
-fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 60 particlerate 45 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
+fix             ins_big big insert/rate/region seed 10000169 distributiontemplate big_dist verbose yes nparticles 60 particlerate 45 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
 
