@@ -74,7 +74,7 @@ fix             ins_small small insert/rate/region seed 10000141 distributiontem
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
-fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 55 particlerate 83 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
+fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 55 particlerate 40 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
 
