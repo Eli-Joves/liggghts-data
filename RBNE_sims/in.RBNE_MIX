@@ -29,7 +29,7 @@ fix             m5 all property/global coefficientRollingFriction peratomtypepai
 
 # Particle insertion
 
-fix             small all particletemplate/sphere 10000019 atom_type 1 density constant 2600 radius constant 0.001
+fix             small all particletemplate/sphere 10000019 atom_type 1 density constant 2600 radius constant 0.002
 fix             big all particletemplate/sphere 10000079 atom_type 2 density constant 8900 radius constant 0.005
 fix             small_dist all particledistribution/discrete 10000103 1 small 1mes
 fix             big_dist all particledistribution/discrete 10000121 1 big 1
@@ -115,7 +115,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.0111820591297275 period 0.1 #4.5 gamma  
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00993960811531334 period 0.1 #4 gamma  
 
 #starts 640000
 run             3840000 upto # run 20 secs
