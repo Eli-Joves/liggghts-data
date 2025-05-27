@@ -1,5 +1,5 @@
 ### Initialization for Glass
-log RBNE_MIX_Trial_22.log
+log RBNE_MIX_Trial_23.log
 
 
 # Preliminaries
@@ -61,9 +61,9 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post22/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post22/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post22/can_*.stl cad1
+dump        big_data big custom/vtk 6400 post23/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post23/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post23/can_*.stl cad1
 
 ### Execution and further settings
 
@@ -115,7 +115,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00993960811531334 period 0.1 #4 gamma  
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00279551478243188 period 0.05 #4.5 gamma  
 
 #starts 640000
 run             3840000 upto # run 20 secs
