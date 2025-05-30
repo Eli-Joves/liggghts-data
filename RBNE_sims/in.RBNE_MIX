@@ -70,11 +70,11 @@ dump		dmpcad1 all mesh/stl 6400 post24/can_*.stl cad1
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
-fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 9000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 6000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
-fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 55 particlerate 55 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
+fix             ins_big big insert/rate/region seed 10000141 distributiontemplate big_dist verbose yes nparticles 55 particlerate 65 insert_every 10 start 10 overlapcheck yes vel constant 0.0 0.0 -0.003 all_in yes region insertion_big
 
 run             640000 upto # 4 secs
 
@@ -115,7 +115,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00279551478243188 period 0.05 #4.5 gamma  
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00496980405765667 period 0.07 #4.5 gamma  
 
 #starts 640000
 run             3840000 upto # run 20 secs
