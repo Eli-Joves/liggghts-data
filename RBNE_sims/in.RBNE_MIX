@@ -124,4 +124,4 @@ run             7040000 upto # run 40 secs
 unfix           movecad1
 
 # Allow particles to settle
-run             4160000 upto # run 2 secs
+run             7360000 upto # run 2 secs
