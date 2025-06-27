@@ -1,4 +1,4 @@
-log RBNE_MIX_Trial_31.log
+log RBNE_MIX_Trial_32.log
 ### Initialization for Glass 12000 (small) and Bronze 55 (big)
 
 # Preliminaries
@@ -60,9 +60,9 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post31/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post31/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		dmpcad1 all mesh/stl 6400 post31/can_*.stl cad1
+dump        big_data big custom/vtk 6400 post32/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post32/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		dmpcad1 all mesh/stl 6400 post32/can_*.stl cad1
 
 ### Execution and further settings
 
@@ -70,6 +70,8 @@ dump		dmpcad1 all mesh/stl 6400 post31/can_*.stl cad1
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
 fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 12000 particlerate 12000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+
+run             320000 upto # 4 secs
 
 #Big Particles
 region          insertion_big cylinder z 0.000 0.000 0.040 0.400 0.500  
