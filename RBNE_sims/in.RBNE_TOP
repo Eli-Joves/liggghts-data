@@ -1,5 +1,5 @@
 log RBNE_Top_Trial_06.log
-### Initialization for Glass 12000 (small) and Bronze 55 (big) 4 Gamma
+### Initialization for Glass 9000 (small) and Bronze 55 (big) 4 Gamma
 
 # Preliminaries
 units           si
@@ -69,7 +69,7 @@ dump		dmpcad1 all mesh/stl 6400 post_top_06/can_*.stl cad1
 # Insert particles
 #Small Particles
 region          insertion_small cylinder z 0.000 0.000 0.040 0.350 0.390
-fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 12000 particlerate 12000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
+fix             ins_small small insert/rate/region seed 10000141 distributiontemplate small_dist verbose yes nparticles 9000 particlerate 9000 insert_every 10 start 1 overlapcheck yes vel constant 0.0 0.0 -0.001 all_in yes region insertion_small
 
 run             320000 upto # 4 secs
 
