@@ -116,7 +116,7 @@ thermo_style    custom step v_xpossmall v_xfrcsmall v_xvecsmall v_xposbig v_xfrc
 thermo          8 #show data every 0.0000625 sec
 
 # Oscillate mesh
-fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00993960811531334 period 0.06667 #4 gamma 10 Hz
+fix             movecad1 all move/mesh mesh cad1 wiggle amplitude 0 0 0.00993960811531334 period 0.06667 #4 gamma 15 Hz
 
 #starts 640000
 run             7040000 upto # run 40 secs
