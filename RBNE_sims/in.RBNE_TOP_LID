@@ -61,10 +61,10 @@ fix             grav all gravity 9.81 vector 0.0 0.0 -1.0
 timestep        0.00000625
 
 #File Output
-dump        big_data big custom/vtk 6400 post_lid11_3/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump        small_data small custom/vtk 6400 post_lid11_3/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
-dump		    dmpcad1 all mesh/stl 6400 post_lid11_3/can_*.stl cad1
-dump		    dmpcad2 all mesh/stl 6400 post_lid11_3/lid_*.stl cad2
+dump        big_data big custom/vtk 6400 post_top_lid_01/big_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump        small_data small custom/vtk 6400 post_top_lid_01/small_*.vtk id type type x y z ix iy iz vx vy vz fx fy fz omegax omegay omegaz radius
+dump		    dmpcad1 all mesh/stl 6400 post_top_lid_01/can_*.stl cad1
+dump		    dmpcad2 all mesh/stl 6400 post_top_lid_01/lid_*.stl cad2
 
 ### Execution and further settings
 
