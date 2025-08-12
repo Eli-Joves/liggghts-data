@@ -1,5 +1,5 @@
 log RBNE_LID_TOP_01_02.log
-### Initialization for Glass 9000 (small) and Bronze 55 (big) 4 Gamma 10 Hz 139 (chi 1.005)
+### Initialization for Glass 9000 (small) and Bronze 55 (big) 4 Gamma 10 Hz 141 (chi 1.625)
 
 # Preliminaries
 units           si
